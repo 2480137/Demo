@@ -1,0 +1,171 @@
+
+
+ Why Collections?
+
+Collections in Java provide ready‑made data structures to store and manage groups of objects efficiently.  
+Before Collections, Java relied on arrays, which have limitations:
+
+   Fixed size
+   Cannot grow/shrink dynamically
+   No built‑in methods like search, sort, or delete
+
+Collections solve these problems by offering flexible, powerful data structures.
+
+
+ Java Collection Framework Structure (Hierarchy)
+
+ The Collection Framework consists of:
+
+1.  Interfaces → Define behaviors (List, Set, Queue)
+2.  Implementations → Provide concrete data structures (ArrayList, HashSet, LinkedList)
+3.  Utility Classes → Provide helper methods (Collections, Arrays)
+
+
+
+ Collection Hierarchy Diagram 
+
+                   Iterable
+                       |
+                   Collection
+            /           |          \
+          List         Set        Queue
+           |            |           |
+     ArrayList     HashSet       PriorityQueue
+     LinkedList    LinkedHashSet  ArrayDeque
+     Vector        TreeSet
+
+ Map is NOT part of the Collection interface, but it is part of the Collection Framework.
+
+                   Map
+          /         |        \
+     HashMap   LinkedHashMap  TreeMap
+
+ 1. List Interface
+ Key Features
+
+   Maintains insertion order
+   Allows duplicates
+   Supports index-based access
+
+Common Implementations
+
+   ArrayList
+   LinkedList
+   Vector
+
+ Example 
+
+
+import java.util.;
+
+public class ListExample {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+        
+        names.add("Amit");
+        names.add("Riya");
+        names.add("Amit"); // duplicate allowed
+
+        System.out.println("List: " + names);
+        System.out.println("Second element: " + names.get(1));
+    }
+}
+
+
+ Output
+
+    List: [Amit, Riya, Amit]
+    Second element: Riya
+
+
+
+2. Set Interface
+
+Key Features
+
+   No duplicates allowed
+   Order is not guaranteed (HashSet)
+   Some variants maintain order (LinkedHashSet, TreeSet)
+
+Common Implementations
+
+   HashSet – no order
+   LinkedHashSet – insertion order
+   TreeSet – sorted order
+
+ Example 
+
+import java.util.;
+
+public class SetExample {
+    public static void main(String[] args) {
+        Set<Integer> numbers = new HashSet<>();
+
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(10); // duplicate - ignored
+
+        System.out.println("Set: " + numbers);
+    }
+}
+
+
+ Output (order may vary)
+
+    Set: [20, 10]
+
+
+
+3. Map Interface
+
+Key Features
+
+   Stores data in key–value pairs
+   Keys must be unique
+   Values can be duplicated
+   Not part of Collection, but part of the framework
+
+Common Implementations
+
+   HashMap
+   LinkedHashMap
+   TreeMap
+
+ Example (Map)
+
+
+import java.util.;
+
+public class MapExample {
+    public static void main(String[] args) {
+        Map<Integer, String> students = new HashMap<>();
+
+        students.put(101, "Arun");
+        students.put(102, "Meena");
+        students.put(101, "Vijay"); // duplicate key - value updated
+
+        System.out.println("Students: " + students);
+        System.out.println("Find roll 101: " + students.get(101));
+    }
+}
+
+
+ Output
+
+    Students: {101=Vijay, 102=Meena}
+    Find roll 101: Vijay
+
+
+
+ Quick Comparison Table
+
+| Feature    | List        | Set             | Map                     |
+| ---------- | ----------- | --------------- | ----------------------- |
+| Stores?    | Elements    | Unique elements | Key–value pairs         |
+| Duplicates | Yes         |  No             | Keys – No, Values – Yes |
+| Order      | Maintains   | Depends         | Depends                 |
+| Access     | Index based | No index        | Key based               |
+
+
+
+

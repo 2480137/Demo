@@ -1,0 +1,2351 @@
+i/p --> process --> o/p 
+
+mem --> 1001--> variable name --> 
+
+method / fuction ==> var o/p 
+
+
+var + method   == Class   
+
+object 
+
+
+public class Demo1 {
+
+	public static void main(String[] args) {
+
+		System.out.println("First Java progarm");
+
+	}
+
+/* 
+
+ * camelcasing 
+
+ * getData // method
+
+ * Getdata // Class
+
+ * Getdata // interface
+
+ * var testData // variables
+
+ * static final int Test_Data //constant uppercase seperated by underscores
+
+ * */
+
+}
+====================================================================================
+ 
+package JavaFirstProg;
+
+import FirstPackage.FirstPackClass;
+
+public class CallPackage {
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+		FirstPackClass packObj=new FirstPackClass();		
+
+		packObj.Display();
+
+		p1.Display();
+
+ System.out.println(FirstPackClass.x);
+
+	}
+
+}
+
+
+
+package FirstPackage;
+
+public class FirstPackClass {	
+
+	public static int x = 10;
+
+
+	public void Display()
+
+	{
+
+		System.out.println("inside FirstPackage-FirstPackClass!");
+
+	}
+
+}
+
+
+
+
+===========================================================
+
+public class operators {
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+		int a=20; // assing
+
+		int b=10;
+
+		System.out.println(a);
+
+		a++; //inc
+
+		System.out.println(a);
+
+		System.out.println(a+b);
+
+		--a; //dec
+ 		a--
+
+		System.out.println(a);
+System.out.println(a+b);
+
+		System.out.println(a-b);
+
+		System.out.println(a/b);
+
+		System.out.println(a*b);
+
+		System.out.println(a%b);
+
+		
+
+		boolean bool=true;
+
+		System.out.println(bool);
+
+		bool=!bool;
+
+		System.out.println(bool);	
+
+		
+
+		if(a==b)
+
+		{
+
+			System.out.println("a equal b");
+
+		}
+
+		else
+
+		{
+
+			System.out.println("a not equal b");	
+
+		}
+
+		
+
+		
+
+		if(a>=b)
+
+		{
+
+			System.out.println("a greater than equal b");
+
+		}
+
+		else
+
+		{
+
+			System.out.println("a not greater than equal b");	
+
+		}
+
+		
+
+		
+
+		
+
+		if(a>=b && b!=0)
+
+		{
+
+			System.out.println("both condition passed");
+
+		}
+
+		else
+
+		{
+
+			System.out.println("a not greater than equal b");	
+
+		}
+
+		 if(a<=b || b!=0)
+
+		{
+
+			System.out.println("any one condition passed");	
+
+		}
+
+			else
+
+			{
+
+				System.out.println("a not greater than equal b");	
+
+			}
+
+		 
+
+		 // ternary operator
+
+                  (condition)? va1 : val2 
+if(cond) true{
+val1
+}
+else{
+val2
+}
+
+			int x=(a>b)?a:b;
+
+			System.out.println("tenary"+x);
+
+	}	
+
+}
+
+
+=====================================================================
+
+package JavaFirstProg;
+public class OneDArray {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int[] arr1 = new int[3];
+arr1[0]=10;
+arr1[1]=20;
+arr1[2]=30;
+for(int i=0;i<arr1.length;i++)
+{
+	System.out.println(arr1[i]);	
+}
+
+
+
+System.out.println("direct instialization");
+
+int[] arr2= {1,2,3,4,5};
+
+for(int i=0;i<arr2.length;i++)
+
+{
+
+	System.out.println(arr2[i]);	
+
+}
+
+}
+
+
+
+}
+
+
+
+======================================================
+
+package JavaFirstProg;
+
+
+
+public class whileDowhile {
+
+
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+int i=0;
+
+//int x=3;
+
+int x=0;
+
+while(i<x)
+
+{
+
+	i++;
+
+	System.out.println(i);
+
+}
+
+
+
+//System.out.println();
+
+System.out.println("\n Do while");
+
+int j=0;
+
+do{
+
+	j++;
+
+	System.out.println(j);
+
+}while(j<x);
+
+	}
+
+
+
+}
+
+
+
+=========================================================
+
+
+
+package JavaFirstProg;
+
+public class Variables {
+
+ int x=10; // instance var
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+/*
+
+ * 3 types
+
+ * 1. Local variable //scope inside method
+
+ * 2. Instance Variable // Scope within that class
+
+ * 3. Static variable // Scope within the package
+
+ * */
+
+		int y =20; // local var
+
+		int z =30;
+
+		String str= "stringz";		
+
+		System.out.println(z+y);
+
+		System.out.println(str+" "+y);
+
+	}
+
+}===================================
+
+
+
+package JavaFirstProg;
+
+
+
+public class Switchcase {
+
+public static void main(String[] args) {
+
+
+
+	//int ip=2;
+
+	int ip=3;
+
+	switch(ip) {
+
+	case 1:
+
+		System.out.println("one");
+
+		break;
+
+	case 2:
+
+		System.out.println("Two");
+
+		break;
+
+		default:
+
+			System.out.println("zero");						
+
+	}
+
+	
+
+	int res= switch(ip) {
+
+	case 1 -> 1;
+
+	case 2 -> 2;
+
+	default -> 0;
+
+	};
+
+	System.out.println(res); 
+
+	// Output: Wednesday	
+
+}
+
+}
+
+==================================================
+
+
+
+
+
+package JavaFirstProg;
+
+
+
+import java.util.*;
+
+
+
+class Order1 {
+
+    int orderId;
+
+    String customerName;
+
+    double amount;
+
+
+
+    Order1(int orderId, String customerName, double amount) {
+
+        this.orderId = orderId;
+
+        this.customerName = customerName;
+
+        this.amount = amount;
+
+    }
+
+
+
+    @Override
+
+    public String toString() {
+
+        return "OrderID: " + orderId + ", Customer: " + customerName + ", Amount: " + amount;
+
+    }
+
+}
+
+
+
+public class OrderMapExample {
+
+    public static void main(String[] args) {
+
+        // Step 1: Store orders in a Map
+
+        Map<Integer, Order1> orderMap = new HashMap<>();
+
+        orderMap.put(101, new Order1(101, "Alice", 2500.0));
+
+        orderMap.put(102, new Order1(102, "Bob", 1800.0));
+
+        orderMap.put(103, new Order1(103, "Charlie", 3200.0));
+
+
+
+        // Step 2: Pick order directly using orderId (no iteration)
+
+        int searchId = 102;
+
+        Order1 result = orderMap.get(searchId);
+
+
+
+        // Step 3: Print result
+
+        if (result != null) {
+
+            System.out.println("Found: " + result);
+
+        } else {
+
+            System.out.println("Order not found!");
+
+        }
+
+    }
+
+}
+
+=============================================
+
+
+
+package JavaFirstProg;
+
+
+
+public class operators {
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+		int a=20;
+
+		int b=10;
+
+		System.out.println(a);
+
+		a++;
+
+		System.out.println(a);
+
+		System.out.println(a+b);
+
+		--a;
+
+		System.out.println(a);
+
+		System.out.println(a-b);
+
+		System.out.println(a/b);
+
+		System.out.println(a*b);
+
+		System.out.println(a%b);
+
+		
+
+		boolean bool=true;
+
+		System.out.println(bool);
+
+		bool=!bool;
+
+		System.out.println(bool);	
+
+		
+
+		if(a==b)
+
+		{
+
+			System.out.println("a equal b");
+
+		}
+
+		else
+
+		{
+
+			System.out.println("a not equal b");	
+
+		}
+
+		
+
+		
+
+		if(a>=b)
+
+		{
+
+			System.out.println("a greater than equal b");
+
+		}
+
+		else
+
+		{
+
+			System.out.println("a not greater than equal b");	
+
+		}
+
+		
+
+		
+
+		
+
+		if(a>=b && b!=0)
+
+		{
+
+			System.out.println("both condition passed");
+
+		}
+
+		else
+
+		{
+
+			System.out.println("a not greater than equal b");	
+
+		}
+
+		 if(a<=b || b!=0)
+
+		{
+
+			System.out.println("any one condition passed");	
+
+		}
+
+			else
+
+			{
+
+				System.out.println("a not greater than equal b");	
+
+			}
+
+		 
+
+		 // ternary operator
+
+			int x=(a>b)?a:b;
+
+			System.out.println("tenary"+x);
+
+	}
+
+	
+
+}
+
+
+
+======================================================
+
+
+
+
+
+
+
+package JavaFirstProg;
+
+class Super{
+
+	  void sdispaly() {
+
+	 System.out.println("Super class");
+
+ }
+
+ }
+
+ class Sub1 extends Super {
+
+	 void s1dispaly() {
+
+	 System.out.println("sub1 class");
+
+ }
+
+ }
+
+ class Sub2 extends Sub1{
+
+	 void s2dispaly() {
+
+	 System.out.println("sub2 class");
+
+ }
+
+ }
+
+
+
+public class MultilevelInheretance {
+
+
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+Sub2 s2=new Sub2();
+
+s2.s2dispaly();
+
+s2.s1dispaly();
+
+s2.sdispaly();
+
+
+
+	}
+
+
+
+}
+
+
+
+===============================================
+
+
+
+package JavaFirstProg;
+
+
+
+public class MuldimArray {
+
+
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+//int[][] arr1 =new int[2][3];
+
+		int[][] arr1 = {{1,1,2},{2,1,2},{3,1,2}};
+
+for(int i=0;i<3;i++)
+
+{
+
+	for(int j=0;j<3;j++)
+
+	{
+
+		System.out.print(arr1[i][j]+" ");
+
+	}
+
+	System.out.println();
+
+}
+
+int[][][] cube = new int[2][2][2];
+
+
+
+cube[0][0][0] = 100;
+
+cube[0][1][1] = 200;
+
+cube[1][0][1] = 300;
+
+cube[1][1][0] = 400;
+
+
+
+System.out.println(cube[1][0][1]);
+
+	}
+
+
+
+
+
+}
+
+
+
+===========================================
+
+
+Method Overloading is a feature in Java that allows a class to have multiple methods with the same name, but with different parameters.
+
+> Same method name, different arguments.  
+> Java decides which method to call based on the number, type, and order of parameters.
+
+It is an example of Compile-time Polymorphism (Static Polymorphism).
+
+ ⭐ 2. Why Do We Use Method Overloading?
+
+✔ Improves code readability  
+✔ Avoids creating multiple method names for similar operations  
+✔ Same action performed in different ways  
+✔ Makes API design cleaner
+
+Example use case in real life:
+
+   A calculator can add two numbers, three numbers, or even decimals → same method name → different parameters
+
+ ⭐ 3. Rules for Method Overloading
+
+To overload a method, you must change at least one of the following:
+
+ ✔ Number of parameters
+
+`add(int a)`  
+`add(int a, int b)`
+
+ ✔ Type of parameters
+
+`add(int a, int b)`  
+`add(double a, double b)`
+
+ ✔ Order of parameters
+
+`add(int a, double b)`  
+`add(double a, int b)`
+
+ ❌ Overloading cannot be done by changing:
+
+   Method return type alone
+   Method access modifier alone
+
+
+
+ ⭐ 4. Simple Example 
+class Calculator {
+
+    // Method 1: Adding two integers
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method 2: Adding three integers
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Method 3: Adding two doubles
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+
+        System.out.println(calc.add(10, 20));         // Calls method 1
+        System.out.println(calc.add(10, 20, 30));     // Calls method 2
+        System.out.println(calc.add(10.5, 20.5));     // Calls method 3
+    }
+}
+
+
+ ⭐ 5. Method Overloading with Changing Order of Parameters
+
+class Display {
+
+    void show(int a, String b) {
+        System.out.println("Int and String");
+    }
+
+    void show(String a, int b) {
+        System.out.println("String and Int");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Display d = new Display();
+        d.show(10, "Java");  // calls first method
+        d.show("Hello", 20); // calls second method
+    }
+}
+
+
+ ⭐ 6. What Is NOT Method Overloading? 
+
+ ❌ Changing only return type → NOT overloading
+
+
+int show() { return 10; }
+double show() { return 10.5; }  // Error
+
+
+ ❌ Changing access modifier → NOT overloading
+
+public void display() {}
+private void display() {}  // Error
+
+Java requires a change in method signature, not return type.
+
+
+
+ ⭐ 7. Why It Is Called Compile-Time Polymorphism?
+
+Because:
+
+   At compile time, the Java compiler checks which method matches the arguments.
+   Method binding happens before the program runs.
+
+
+package JavaFirstProg;
+class Calculator {
+
+    int add(int a, int b) {
+
+        return a + b;
+
+    }
+
+int add(int x) {
+
+        return x;
+
+    }
+ int add(double a, double b) {
+
+    	int c= (int) (a+b);   	
+
+        return c;
+
+    }
+
+float add(int a, int b) {
+
+        return a + b;
+
+    } // error not on return type 
+
+    int add(double a, double b) {
+
+    	int c= (int) (a+b);  	
+
+        return c;
+
+    }
+
+}
+// no of parameter/ type parameter 
+
+public class MethodOverloading {
+
+    public static void main(String[] args) {
+
+        Calculator calc = new Calculator();
+
+        System.out.println(calc.add(2, 3));       // Output: 5
+
+        System.out.println(calc.add(2.5, 3.5));   // Output: 6.0
+
+    }
+}
+// same method with different parameter type and not by the retun type , return type can be type casted
+
+
+=========================================
+
+
+
+ ⭐ Method Overriding in Java
+
+ 1. Introduction
+
+Method Overriding occurs when a child class provides its own implementation of a method that is already defined in its parent class.
+
+> Same method name, same parameters, same return type — but implemented differently in child class.
+
+It is an example of Run-time Polymorphism (Dynamic Polymorphism).
+
+
+
+ ⭐ 2. Why Do We Use Method Overriding?
+
+✔ To provide specific implementation in child class  
+✔ To achieve runtime polymorphism  
+✔ To reuse parent class methods by modifying behavior  
+✔ To write flexible and maintainable code
+
+
+
+ ⭐ 3. Rules of Method Overriding
+
+To override a method:
+
+ ✔ 1. Method must have the same signature
+
+   Same name
+   Same parameter list
+   Same return type (or covariant return type)
+
+ ✔ 2. Must be in Parent–Child relationship
+
+Inheritance is required.
+
+ ✔ 3. Access level should NOT be more restrictive
+
+Allowed:
+
+   Parent → protected
+   Child → public ✔
+
+Not allowed:
+
+   Parent → public
+   Child → private ❌
+
+ ✔ 4. Only instance methods can be overridden
+
+Static methods → hidden (not overridden)  
+Final methods → cannot be overridden  
+Private methods → cannot be overridden
+
+ ✔ 5. It occurs at runtime (dynamic binding)
+
+
+
+ ⭐ 4. Simple Example 
+
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Animal a = new Dog(); // Upcasting
+        a.sound();            // Calls Dog's sound()
+    }
+}
+
+
+ Output:
+
+    Dog barks
+
+✔ Parent reference calls child’s method → Runtime Polymorphism
+
+
+
+ ⭐ 5. Using super to call parent method
+
+Child can call the parent’s version of the overridden method using super:
+
+class Animal {
+    void sound() {
+        System.out.println("Animal sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        super.sound(); // calling parent method
+        System.out.println("Dog barks");
+    }
+}
+
+
+ ⭐ 6. What CANNOT be Overridden? (Important for Freshers)
+
+ ❌ Static methods (method hiding)
+
+static void show() {}   // cannot override
+
+
+ ❌ Private methods
+
+(They are not inherited)
+
+ ❌ Final methods
+
+(Cannot modify final methods)
+
+ ❌ Constructors
+
+(Constructors cannot be overridden)
+
+
+
+ ⭐ 7. Runtime Polymorphism Example
+
+
+class Shape {
+    void draw() {
+        System.out.println("Drawing shape");
+    }
+}
+
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing circle");
+    }
+}
+
+class Square extends Shape {
+    void draw() {
+        System.out.println("Drawing square");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Shape s;
+
+        s = new Circle();
+        s.draw();  // Circle version
+
+        s = new Square();
+        s.draw();  // Square version
+    }
+}
+
+2. Sample code 
+package JavaFirstProg;
+
+class parent {
+
+    void dis() {
+
+        System.out.println("parent");
+
+    }
+
+}
+
+class Test1 extends parent {
+
+    @Override
+
+    void dis() {
+
+        System.out.println("test1");
+
+    }
+
+}
+
+class test2 extends parent {
+
+    @Override
+
+    void dis() {
+
+        System.out.println("test2");
+
+    }
+
+}
+
+public class MethodOverride {
+
+    public static void main(String[] args) {
+
+    	parent a1 = new Test1();
+
+        parent a2 = new test2();
+
+        parent a = new parent();
+
+        a1.dis();  // Output: test1
+
+        a2.dis();  // Output:test2
+
+        a.dis();
+
+    }
+
+}
+
+============================================
+package JavaFirstProg;
+public class Sample {
+	public static void main(String[] args) {		
+Sample obj=new Sample();
+obj.get();
+obj.set();
+int a=obj.sum(10,20);
+System.out.println("Sum: "+a);
+staticMethod();
+	}
+
+	public void get()
+	{
+		System.out.println("inside get");
+	}
+	public void set()
+	{
+		System.out.println("inside set");
+	}
+	public static void staticMethod()
+	{
+		System.out.println("inside a static method");
+	}
+
+	public int sum(int x, int y)
+	{
+		int z=x+y;
+		return z;
+	}
+}
+===============================================
+//break & continue :
+
+package JavaFirstProg;
+public class LoopBrCnt {
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+		//break;
+		System.out.println("break");
+for(int i=0;i<5;i++)
+{
+	if(i==2)
+		break;
+	System.out.println(i);
+}
+System.out.println("\\\n continue");
+	// continue
+	for(int i=0;i<5;i++)
+
+	{		if(i==2)
+			continue;
+		System.out.println(i);
+	}
+}
+}
+
+=============================================
+1. What is an Interface?
+
+An interface in Java is a blueprint of a class.  
+It contains abstract methods (methods without body) and is used to achieve abstraction and multiple inheritance.
+
+2. Why Do We Use Interfaces?
+
+✔ To achieve abstraction  
+✔ To support multiple inheritance  
+✔ To define common behavior for multiple classes  
+✔ To provide loose coupling  
+
+3. Syntax of an Interface
+interface InterfaceName {
+    // abstract methods (by default)
+    void method1();
+    void method2();
+}
+
+ A class implements the interface:
+class ClassName implements InterfaceName {
+    public void method1() { }
+    public void method2() { }
+}
+
+4. Example: Basic Interface
+
+
+interface Animal {
+    void sound();   // abstract method
+    void eat();
+}
+
+class Dog implements Animal {
+    public void sound() {
+        System.out.println("Dog barks");
+    }
+
+    public void eat() {
+        System.out.println("Dog eats food");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Animal a = new Dog();   // upcasting
+        a.sound();
+        a.eat();
+    }
+}
+
+
+5. Key Rules of Interfaces
+
+ Rule 1: Cannot create objects of an interface
+Animal a = new Animal(); // ❌ Not allowed
+
+
+Rule 2: Interface methods are abstract by default
+
+Before Java 8 → no method body allowed  
+Since Java 8 → default and static methods allowed
+
+ Rule 3: Interface variables are automatically:
+
+*   `public`
+*   `static`
+*   `final`
+
+Example:
+
+interface A {
+    int x = 10;  // public static final automatically
+}
+
+ Rule 4: A class can implement multiple interfaces
+
+
+class C implements A, B { }
+
+Rule 5: An interface can extend another interface (But cannot extend a class)
+
+
+6. Multiple Inheritance Using Interfaces
+
+
+interface A {
+    void show();
+}
+
+interface B {
+    void display();
+}
+
+class C implements A, B {
+    public void show() { System.out.println("From A"); }
+    public void display() { System.out.println("From B"); }
+}
+
+
+7. Interfaces after Java 8 (Important Update)
+
+Java 8 added new capabilities to interfaces.
+
+ ✔ Default Methods
+
+Methods with body inside an interface.
+
+interface A {
+    default void message() {
+        System.out.println("Default method in Interface");
+    }
+}
+
+
+✔ Static Methods
+
+These belong to the interface, not the object.
+
+interface A {
+    static void call() {
+        System.out.println("Static method in interface");
+    }
+}
+----------------------------------------------
+Interface to implement multiple inheritence - example 
+
+package JavaFirstProg;
+
+interface I1 {
+
+    void I1Display();
+
+}
+
+interface I2 {
+
+    void I2Display();
+
+}
+
+interface I3 {
+
+    void I3Display();
+
+}
+
+class sub1 implements I1,I2 {
+
+    public void I1Display() { System.out.println("Interface 1"); }
+
+    public void I2Display() { System.out.println("Interface 2 in sub 1"); }
+
+}
+
+class sub2 implements I3,I2 {
+
+    public void I3Display() { System.out.println("Interface 3"); }
+
+    public void I2Display() { System.out.println("Interface 2 in sub 2"); }
+
+}
+
+public class Interface {
+
+    public static void main(String[] args) {
+
+        sub1 s1= new sub1();
+
+       s1.I1Display();
+
+       s1.I2Display();
+
+       
+
+       sub2 s2 = new sub2();
+
+       s2.I2Display();
+
+       s2.I3Display();
+
+    }
+
+}
+
+
+
+==================================================
+1. Introduction to Inheritance
+
+Inheritance allows a class toacquire properties and behaviors (variables + methods) from another class.
+
+   The class that gives properties →Parent / Base / Superclass
+   The class that receives properties →Child / Derived / Subclass
+
+ Why do we use Inheritance?
+
+   Reusability
+   Reduces code duplication
+   Supports code maintenance
+   Improves readability
+   Supports method overriding and runtime polymorphism
+
+
+
+ 2. Single Inheritance
+
+ ✔ Definition
+
+Whenone class inherits from one parent class, it is calledsingle inheritance.
+
+ Diagram:
+
+         Parent
+            |
+          Child
+
+ Example:
+
+java
+class Animal {  
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {  
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat();   // inherited method
+        d.bark();
+    }
+}
+
+
+
+
+ 3. Multilevel Inheritance
+
+ ✔ Definition
+
+When a class inherits from a class, and another class inherits from that subclass — forming achain.
+
+ Diagram:
+
+        Grandparent
+             |
+          Parent
+             |
+          Child
+
+ Example:
+
+java
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+class Puppy extends Dog {
+    void weep() {
+        System.out.println("Weeping...");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Puppy p = new Puppy();
+
+        p.eat();   // from Animal
+        p.bark();  // from Dog
+        p.weep();  // from Puppy
+    }
+}
+
+
+
+
+ 4. super Keyword
+
+Thesuper keyword is used to access members of theparent class.
+
+ ✔ Uses of super
+
+1. Access parent class variables
+2. Access parent class methods
+3. Call parent class constructor
+
+
+
+4.1 super to access parent variable
+
+java
+class Animal {
+    String color = "White";
+}
+
+class Dog extends Animal {
+    String color = "Black";
+
+    void printColor() {
+        System.out.println(color);        // Child color
+        System.out.println(super.color);  // Parent color
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.printColor();
+    }
+}
+
+
+
+
+4.2 super to access parent method
+
+java
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+class Dog extends Animal {
+    void eat() {
+        System.out.println("Dog is eating");
+    }
+
+    void show() {
+        super.eat(); // calls parent method
+        eat();       // calls child method
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        new Dog().show();
+    }
+}
+
+
+
+
+4.3 super to call parent constructor
+
+java
+class Animal {
+    Animal() {
+        System.out.println("Animal constructor");
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        super(); // calls Animal constructor
+        System.out.println("Dog constructor");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+    }
+}
+
+
+ Output:
+
+    Animal constructor
+    Dog constructor
+
+
+5. // Hierarchical inheritance 
+package JavaFirstProg;
+
+class Vehicles
+
+{
+
+	void wheels()
+
+	{
+
+		System.out.println("vehicles have wheels");
+
+	}
+
+}
+
+class Car extends Vehicles{
+
+	void cars()
+
+	{
+
+		System.out.println("cars have 4 wheels");
+
+	}
+
+}
+
+class Bike extends Vehicles{
+
+	void bikes()
+
+	{
+
+		System.out.println("bikes have 2 wheels");
+
+	}
+
+}
+
+
+
+public class Inheritance {
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+Car c=new Car();
+
+c.wheels();
+
+c.cars();
+
+Bike b = new Bike();
+
+b.wheels();
+
+b.bikes();
+
+Vehicles v= new Vehicles();
+
+v.wheels();
+
+//v.cars();//throws error as super class cant access sub class method
+
+	}
+
+}
+
+================================================
+
+package JavaFirstProg;
+public class DataTypes {
+
+	/*
+
+	 * primitive : 
+
+	 * 1.byte 1 byte - 8 bits
+
+	 * 2.short 2 byte 16 bits
+
+	 * 3.int 4 32 bits
+
+	 * 4. long 8 64 bits
+
+	 * 5. float 4
+
+	 * 6. double 8
+
+	 * 7. boolean 0/1 1 byte
+
+	 * 8. char 2 bytes 16 bits
+
+	 * 
+
+	 * Non primitive 
+
+	 * 1. String 
+
+	 * 2. Arrays
+
+	 * 
+
+	 * */
+
+public static void main(String[] args) {
+
+	byte byteval= -123;
+
+	short shortval = 12333;
+
+	int intval = 12345;
+
+	long longval=12345L;
+
+	float floatval= 1.23456F;
+
+	double doubleval= 1.123456D;
+
+	boolean bool=true;
+
+	char ch='r';
+
+	
+
+	//non  primitive 
+
+	DataTypes dt= new DataTypes();
+
+	String str= new String();
+
+	str="string1"; // ext obj creation
+
+	String str1= "new string"; // internal obj creation
+
+	
+
+	System.out.println(str);
+
+	System.out.println(floatval);
+
+	System.out.println(longval);
+
+	System.out.println(doubleval);
+
+	System.out.println(byteval);
+
+	System.out.println(shortval);
+
+	System.out.println(intval);
+
+	System.out.println(bool);
+
+	System.out.println(ch);
+
+}
+
+
+
+}
+
+
+
+========================================================
+
+
+
+package JavaFirstProg;
+
+import FirstPackage.FirstPackClass;
+
+public class CallPackage {
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+		FirstPackClass packObj=new FirstPackClass();		
+
+		packObj.Display();
+
+		p1.Display();
+
+	}
+
+}
+
+
+
+package FirstPackage;
+
+public class FirstPackClass {	
+
+	public void Display()
+
+	{
+
+		System.out.println("inside FirstPackage-FirstPackClass!");
+
+	}
+
+}
+
+
+
+================================================================
+1. What is an Abstract Class?
+
+An abstract class is a class in Java that cannot be instantiated (you cannot create objects of it).  
+It is used to provide a base (template) for other classes.
+
+It may contain:
+
+   Abstract methods (methods without body)
+   Non‑abstract methods (regular methods with body)
+   Variables
+   Constructors
+
+
+
+ 2. Why Do We Need Abstract Classes?
+
+Use abstract classes when:
+
+   You want to provide a common structure for subclasses
+   You want some methods to be mandatory (abstract methods)
+   You want to provide partial implementation
+   You want to enforce a rule: “Every subclass must implement this method.”
+
+Example Use Cases:
+
+   Bank rules (withdraw, deposit)
+   Shape calculation (area, perimeter)
+   Employee types (full-time, contract)
+
+
+
+ 3. Abstract Method
+
+A method declared without method body is abstract.
+
+
+abstract void display();
+```
+
+Rules:
+
+   Must be inside an abstract class
+   Subclasses must override the abstract method
+   Cannot be final, static, or private
+
+
+
+ 4. Syntax of Abstract Class
+
+
+abstract class ClassName {
+    // variables
+    // abstract methods
+    // non-abstract methods
+}
+```
+
+
+
+ 5. Abstract Class Example 
+
+ Example: Shape Program
+
+
+abstract class Shape {
+
+    // Abstract method (no body)
+    abstract void draw();
+
+    // Non-abstract method
+    void info() {
+        System.out.println("This is a shape");
+    }
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a Circle");
+    }
+}
+
+class Rectangle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a Rectangle");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Shape s1 = new Circle();     // Upcasting
+        Shape s2 = new Rectangle();
+
+        s1.draw();
+        s2.draw();
+    }
+}
+```
+
+ Output:
+
+    Drawing a Circle
+    Drawing a Rectangle
+
+
+
+ 6. Key Rules 
+ ✔ Rule 1: You cannot create objects of abstract classes
+
+
+Shape s = new Shape();   // ❌ Error
+```
+
+ ✔ Rule 2: Subclasses must implement all abstract methods
+
+Unless subclass is also declared abstract.
+
+ ✔ Rule 3: Abstract class can have constructors
+
+(But we cannot call them directly — only via subclass)
+
+ ✔ Rule 4: Abstract class can have:
+
+   Variables
+   Concrete methods
+   Abstract methods
+   Constructors
+   Static methods
+   Final methods (but final abstract methods are not allowed)
+
+ 8. Differences: Abstract Class vs Interface 
+
+| Abstract Class                       | Interface                                    |
+| ------------------------------------ | -------------------------------------------- |
+| Can have abstract + concrete methods | All methods are abstract by default (Java 7) |
+| Can have constructors                | No constructors                              |
+| Can have variables with any access   | Variables are `public static final`          |
+| Supports single inheritance          | Supports multiple inheritance                |
+
+
+
+
+package JavaFirstProg;
+
+//Abstract class
+
+abstract class Ab {
+
+ // Abstract method (no body)
+
+ abstract void abmethod();
+
+
+
+ // Concrete method
+
+ void conmethod() {
+
+     System.out.println("Inside abstarct class menthod");
+
+ }
+
+}
+
+
+
+//Subclass must implement abstract method
+
+class Sub extends Ab {
+
+ void abmethod() {
+
+     System.out.println("extended abstarct method");
+
+ }
+
+}
+
+
+
+public class AbstarctClass {
+
+ public static void main(String[] args) {
+
+     Ab d = new Sub();       // ✅ Allowed
+
+     d.abmethod();                  // extended abstarct method 
+
+     d.conmethod();                  // Inside abstarct class menthod"
+
+ }
+
+}
+
+
+
+==============================
+
+
+ 1. Introduction to Constructors
+
+A constructor in Java is a special method used to initialize objects.  
+It is called automatically when an object is created using `new`.
+
+ Key Points
+
+   Constructor name must be same as class name.
+   It has no return type, not even `void`.
+   Executes only once per object creation.
+   Used to set initial values for object fields.
+
+
+
+ 2. Default Constructor
+
+A default constructor is:
+
+   Provided by Java automatically if you do not write any constructor.
+   Contains no parameters.
+   Initializes instance variables to default values (0, null, false, etc.).
+
+ Example: Default Constructor
+
+
+class Student {
+    int id;
+    String name;
+
+    // Java provides a default constructor automatically
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Student s = new Student();
+        System.out.println(s.id);     // Output: 0
+        System.out.println(s.name);   // Output: null
+    }
+}
+
+
+ Custom Default Constructor
+
+If you define your own constructor without parameters, it’s still called a default/zero‑argument constructor:
+
+
+class Student {
+    Student() {
+        System.out.println("Default constructor called");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Student s = new Student();  // calls default constructor
+    }
+}
+
+
+
+
+ 3. Parameterized Constructor
+
+A parameterized constructor accepts arguments and is used to assign user-defined values.
+
+ Example
+
+
+class Student {
+    int id;
+    String name;
+
+    // Parameterized constructor
+    Student(int i, String n) {
+        id = i;
+        name = n;
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Student s = new Student(101, "Maha");
+        System.out.println(s.id);       // Output: 101
+        System.out.println(s.name);     // Output: Maha
+    }
+}
+
+
+ When to use?
+
+   When we want to initialize objects with custom values.
+   Avoids writing multiple setter methods.
+
+
+
+ 4. Constructor Overloading
+
+Constructor overloading means:
+
+   A class can have multiple constructors with different parameter lists.
+   Java decides which constructor to call using number, order, and type of arguments.
+
+ Example of Constructor Overloading
+
+
+class Box {
+    int length;
+    int width;
+    int height;
+
+    // Default constructor
+    Box() {
+        length = 0;
+        width = 0;
+        height = 0;
+    }
+
+    // Parameterized constructor (2 parameters)
+    Box(int l, int w) {
+        length = l;
+        width = w;
+        height = 0;
+    }
+
+    // Parameterized constructor (3 parameters)
+    Box(int l, int w, int h) {
+        length = l;
+        width = w;
+        height = h;
+    }
+
+    void display() {
+        System.out.println("Length: " + length + ", Width: " + width + ", Height: " + height);
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Box b1 = new Box();          // calls default constructor
+        Box b2 = new Box(10, 20);    // calls 2-parameter constructor
+        Box b3 = new Box(5, 10, 15); // calls 3-parameter constructor
+
+        b1.display();
+        b2.display();
+        b3.display();
+    }
+}
+
+
+ Why Constructor Overloading?
+
+   To provide multiple ways of creating objects.
+   Useful when we want flexible initialization for different scenarios.
+
+| Concept                   | Meaning               | Key Point                             |
+| ------------------------- | --------------------- | ------------------------------------- |
+| Default Constructor       | No parameters         | Provided by Java if not written       |
+| Parameterized Constructor | Has parameters        | Used for custom object initialization |
+| Constructor Overloading   | Multiple constructors | Different parameter lists             |
+
+========================================================================================
+
+ 1. What Is Encapsulation?
+
+Encapsulation is one of the core OOP principles.  
+It refers to wrapping data (variables) and code (methods) together into a single unit and restricting direct access to the data.
+
+In simple words:
+
+> Encapsulation = Data Hiding + Controlled Access
+
+ Why do we need Encapsulation?
+
+   Protects data from accidental modification
+   Gives controlled access via getters/setters
+   Improves code reusability and maintainability
+   Helps achieve security
+
+
+
+ 2. Access Modifiers in Java
+
+Access modifiers control visibility of classes, methods, and variables.
+
+ (A) public
+
+   Accessible from anywhere in the program.
+   Use when the member is meant for general use.
+
+Example:
+
+
+public class Student {
+    public String name;
+}
+
+
+
+
+ (B) private
+
+   Accessible only within the same class.
+   Perfect for encapsulating data.
+
+Example:
+
+
+class Student {
+    private int age;   // Only class methods can access
+}
+
+
+
+
+ (C) protected
+
+   Accessible:
+       Within the same class
+       Within the same package
+       In subclasses even if they are in different packages
+
+Example:
+
+
+class Person {
+    protected String address;
+}
+
+
+
+
+ (D) (default / package‑private)
+
+(No keyword)
+
+   Accessible only within the same package.
+
+Example:
+
+
+class Student {
+    String dept;  // default access
+}
+
+ 3. Encapsulating Data
+
+To implement encapsulation:
+
+1.  Make variables private
+2.  Provide public getters and setters to access/update values
+
+
+
+ 4. Example of Encapsulation
+
+   Variables: private
+   Methods: public
+   We control how data is set
+
+ Code Example
+
+`
+class Employee {
+    // Step 1: Data hiding using private variables
+    private int id;
+    private String name;
+    private double salary;
+
+    // Step 2: Public getter and setter methods
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        // Basic validation (benefit of encapsulation)
+        if(id > 0) {
+            this.id = id;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        if(salary >= 0) {
+            this.salary = salary;
+        }
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Employee emp = new Employee();
+        emp.setId(101);
+        emp.setName("Maha");
+        emp.setSalary(50000);
+
+        System.out.println(emp.getId());
+        System.out.println(emp.getName());
+        5. Why Encapsulation Is Important (For Freshers)
+
+✔ Prevents unauthorized access  
+✔ Adds validation logic inside setters  
+✔ Makes code flexible for future changes  
+✔ Hides internal implementation  
+✔ Supports modular programming  
+
+
+| Modifier   | Same Class | Same Package | Subclass | Outside Package |
+|---------   |------------|--------------|----------|-----------------|
+| public     | ✔ 	  | ✔ 		 | ✔ 	    | ✔ 	      |
+| private    | ✔ 	  | ✖ 		 | ✖ 	    | ✖ 	      |
+| protected  | ✔ 	  | ✔ 		 | ✔ 	    | ✖ 	      |
+| default    | ✔ 	  | ✔ 		 | ✖ 	    | ✖ 	      |
+
+==========================================================================================

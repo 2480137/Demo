@@ -1,0 +1,222 @@
+Type --> text --> ch by ch --> eof -1/ readline --> line by line  eof->null
+
+1. CHARACTER STREAMS (Reads/Writes Text)
+
+Character streams work with characters (char) → suitable for text files (`.txt`).
+
+Java provides:
+
+| Class              | Type   | Purpose                             |
+| ------------------ | ------ | ----------------------------------- |
+| FileReader     | Reader | Reads characters from file          |
+| FileWriter     | Writer | Writes characters to file           |
+| BufferedReader | Reader | Reads text efficiently line-by-line |
+| BufferedWriter | Writer | Writes text efficiently             |
+
+
+
+ 1.1 FileReader Example (Reading characters)
+
+
+import java.io.;
+
+public class FileReaderExample {
+    public static void main(String[] args) throws Exception {
+        FileReader fr = new FileReader("sample.txt");
+        int ch;
+
+        while ((ch = fr.read()) != -1) {  // until end of file 
+            System.out.print((char) ch); // convert int → char
+        }
+
+        fr.close();
+    }
+}
+
+
+What it does:
+
+   Reads the file character by character
+
+
+
+ 1.2 FileWriter Example (Writing characters)
+
+
+import java.io.;
+
+public class FileWriterExample {
+    public static void main(String[] args) throws Exception {
+        FileWriter fw = new FileWriter("output.txt");
+        fw.write("Hello Students!\nWelcome to Java FileWriter example.");
+        fw.close();
+    }
+}
+
+
+What it does:
+
+   Creates/writes text into `output.txt`
+   Overwrites if file already exists
+
+
+
+1.3 BufferedReader Example (Reading line by line)
+
+
+import java.io.;
+
+public class BufferedReaderExample {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new FileReader("sample.txt"));
+        String line;
+
+        while ((line = br.readLine()) != null) {
+            System.out.println(line);   // prints each line
+        }
+
+        br.close();
+    }
+}
+
+
+Why BufferedReader?
+
+   Faster
+   Supports `readLine()`
+   Best for reading large text files
+
+
+
+ 1.4 BufferedWriter Example (Writing text efficiently)
+
+
+import java.io.;
+
+public class BufferedWriterExample {
+    public static void main(String[] args) throws Exception {
+        BufferedWriter bw = new BufferedWriter(new FileWriter("notes.txt"));
+
+        bw.write("Java is fun!");
+        bw.newLine(); // writes newline
+        bw.write("BufferedWriter makes writing fast.");
+
+        bw.close();
+    }
+}
+
+
+Why BufferedWriter?
+
+   Writes text faster
+   Supports `newLine()`
+
+
+
+ 2. FILE HANDLING WITH File CLASS
+
+The `File` class represents a file or directory in your computer.
+
+
+
+ 2.1 Basic File info using File class
+
+
+import java.io.;
+
+public class FileClassExample {
+    public static void main(String[] args) {
+        File f = new File("sample.txt");
+
+        System.out.println("File exists: " + f.exists());
+        System.out.println("File name: " + f.getName());
+        System.out.println("Absolute path: " + f.getAbsolutePath());
+        System.out.println("Size: " + f.length() + " bytes");
+    }
+}
+
+
+
+
+3. BYTE STREAMS (FileInputStream / FileOutputStream)
+
+Used for:
+
+   Images
+   Audio
+   PDF files
+   Any non-text data
+
+Byte streams work with bytes (0–255).
+
+
+
+ 3.1 FileInputStream Example (Reading bytes)
+
+
+import java.io.;
+
+public class FileInputStreamExample {
+    public static void main(String[] args) throws Exception {
+        FileInputStream fis = new FileInputStream("data.bin");
+        int byteData;
+
+        while ((byteData = fis.read()) != -1) {
+            System.out.print(byteData + " "); // prints byte values
+        }
+
+        fis.close();
+    }
+}
+
+
+
+
+ 3.2 FileOutputStream Example (Writing bytes)
+
+
+import java.io.;
+
+public class FileOutputStreamExample {
+    public static void main(String[] args) throws Exception {
+        FileOutputStream fos = new FileOutputStream("output.bin");
+
+        fos.write(65);   // Writes letter 'A' (ASCII 65)
+        fos.write(66);   // Writes letter 'B'
+
+        fos.close();
+    }
+}
+
+
+
+
+ 4. Character Stream vs Byte Stream (Very Easy Table)
+
+| Feature    | Character Streams      | Byte Streams                      |
+| ---------- | ---------------------- | --------------------------------- |
+| Classes    | FileReader, FileWriter | FileInputStream, FileOutputStream |
+| Works with | Text                   | Binary data                       |
+| Reads      | Characters             | Bytes                             |
+| Use for    | .txt                   | images, pdf, audio                |
+
+
+
+  Notes
+
+    Character Streams (for text)
+    ---------------------------------------
+    FileReader      → reads chars
+    FileWriter      → writes chars
+    BufferedReader  → reads lines
+    BufferedWriter  → writes lines
+
+
+    Byte Streams (for non-text)
+    ---------------------------------------
+    FileInputStream  → reads bytes
+    FileOutputStream → writes bytes
+
+
+
+

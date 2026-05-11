@@ -1,0 +1,106 @@
+intellijfile --> new --> project --> maven --> archtype-->quickstart--> target-->pom.xml --> add dependency 
+
+ =======================================================================
+//pom.xml
+<!-- Source: https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.33</version>
+    <scope>compile</scope>
+</dependency>
+
+=======================================================================
+src-->main-->java-->app
+-------------------------------------
+package org.example;
+import java.sql.*;
+
+public class App {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        System.out.println("JDBC sample");
+
+
+        // Register driver
+//        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        // connection establish
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "root");
+        System.out.println(connection);
+
+        // create statement channel
+        Statement statement = connection.createStatement();
+
+        int rowsUpdated = statement.executeUpdate(
+                "UPDATE Person SET Address='Chennai', City='Tamil Nadu' WHERE PersonID = 2"
+        );
+
+        System.out.println("Rows updated: " + rowsUpdated);
+
+
+// INSERT
+        statement.executeUpdate(
+                "INSERT INTO Person (FirstName, LastName, DateOfBirth, Gender, Address, City) " +
+                        "VALUES ('siva', 'nad', '1990-05-15', 'M', 'Park Street', 'New York')"
+        );
+
+        // INSERT
+        statement.executeUpdate(
+                "INSERT INTO Person (FirstName, LastName, DateOfBirth, Gender, Address, City) " +
+                        "VALUES ('siva', 'test', '1990-05-15', 'M', 'Park Street', 'New York')"
+        );
+
+
+// DELETE
+        statement.executeUpdate(
+                "DELETE FROM Person WHERE PersonID = 4"
+        );
+
+
+        //view data
+        ResultSet resultSet =statement.executeQuery("Select personID,FirstName, Gender,Address from Person");
+
+        while(resultSet.next()) {
+            System.out.println(resultSet.getString("personID")+":"+resultSet.getString("FirstName")
+            +":"+resultSet.getString("Address"));
+        }
+
+        connection.close();
+
+    }
+}
+=========================================================================================================
+
+
+create database demo;  -- create a db
+ 
+
+use demo; -- choose the db
+ 
+ 
+-- create a table
+CREATE TABLE Person (
+ 
+    PersonID INT AUTO_INCREMENT PRIMARY KEY,
+ 
+    FirstName VARCHAR(255) NOT NULL,
+ 
+    LastName VARCHAR(255) NOT NULL,
+ 
+    DateOfBirth DATE,
+ 
+    Gender CHAR(1),
+ 
+    Address VARCHAR(255),
+ 
+    City VARCHAR(255)
+ 
+);
+-- insert values 
+INSERT INTO Person (FirstName, LastName, Gender,Address)
+ 
+VALUES ('John', 'Doe', 'M', 'New York');
+ 
+INSERT INTO Person (FirstName, LastName, Gender,Address)
+ 
+VALUES ('riya', 'Doe', 'F', 'India');

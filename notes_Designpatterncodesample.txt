@@ -1,0 +1,204 @@
+ 1) Singleton — only one instance
+
+Idea: Ensure only one instance of a class is created (e.g., config, logger, driver manager).
+
+
+// SingletonLogger.java
+public class SingletonLogger {
+    // Eager initialization (thread-safe and simple)
+    private static final SingletonLogger INSTANCE = new SingletonLogger();
+
+    private SingletonLogger() {} // prevent new SingletonLogger()
+
+    public static SingletonLogger getInstance() {
+        return INSTANCE;
+    }
+
+    public void log(String msg) {
+        System.out.println("[LOG] " + msg);
+    }
+
+    public static void main(String[] args) {
+        SingletonLogger a = SingletonLogger.getInstance();
+        SingletonLogger b = SingletonLogger.getInstance();
+        a.log("Hello from singleton");
+        System.out.println("Same instance? " + (a == b)); // true
+    }
+}
+
+
+Output (example):
+
+    [LOG] Hello from singleton
+    Same instance? true
+
+
+
+ 2) Factory — create objects without exposing creation logic
+
+Idea: Centralize object creation. Client asks the factory for a type; factory returns the right implementation.
+
+
+// Shape.java
+interface Shape { String draw(); }
+
+// Circle.java
+class Circle implements Shape {
+    @Override public String draw() { return "Drawing a Circle"; }
+}
+
+// Square.java
+class Square implements Shape {
+    @Override public String draw() { return "Drawing a Square"; }
+}
+
+// ShapeFactory.java
+class ShapeFactory {
+    public static Shape create(String type) {
+        if (type == null) throw new IllegalArgumentException("type is null");
+        switch (type.toLowerCase()) {
+            case "circle": return new Circle();
+            case "square": return new Square();
+            default: throw new IllegalArgumentException("Unknown type: " + type);
+        }
+    }
+
+    public static void main(String[] args) {
+        Shape s1 = ShapeFactory.create("circle");
+        Shape s2 = ShapeFactory.create("square");
+        System.out.println(s1.draw());
+        System.out.println(s2.draw());
+    }
+}
+
+
+Output (example):
+
+    Drawing a Circle
+    Drawing a Square
+
+
+
+ 3) Observer — subscribe & get notified on changes
+
+Idea: One-to-many dependency: when the subject changes, all observers are notified.
+
+
+// Subject.java
+import java.util.;
+
+interface Observer {
+    void update(int newState);
+}
+
+class Subject {
+    private final List<Observer> observers = new ArrayList<>();
+    private int state;
+
+    public void addObserver(Observer o) { observers.add(o); }
+    public void removeObserver(Observer o) { observers.remove(o); }
+
+    public void setState(int value) {
+        this.state = value;
+        notifyObservers();
+    }
+
+    private void notifyObservers() {
+        for (Observer o : observers) {
+            o.update(state);
+        }
+    }
+}
+
+// Concrete observers
+class ConsoleObserver implements Observer {
+    private final String name;
+    ConsoleObserver(String name) { this.name = name; }
+
+    @Override public void update(int newState) {
+        System.out.println(name + " observed state -> " + newState);
+    }
+}
+
+// Demo
+class ObserverDemo {
+    public static void main(String[] args) {
+        Subject subject = new Subject();
+        subject.addObserver(new ConsoleObserver("A"));
+        subject.addObserver(new ConsoleObserver("B"));
+
+        subject.setState(1);
+        subject.setState(2);
+    }
+}
+
+
+Output (example):
+
+    A observed state -> 1
+    B observed state -> 1
+    A observed state -> 2
+    B observed state -> 2
+
+
+
+ 4) Strategy — swap algorithms/behaviors at runtime
+
+Idea: Define a family of algorithms, make them interchangeable.
+
+
+// SortStrategy.java
+import java.util.;
+
+interface SortStrategy {
+    void sort(List<Integer> data);
+}
+
+class AscSort implements SortStrategy {
+    @Override public void sort(List<Integer> data) {
+        Collections.sort(data); // ascending
+    }
+}
+
+class DescSort implements SortStrategy {
+    @Override public void sort(List<Integer> data) {
+        Collections.sort(data, Collections.reverseOrder()); // descending
+    }
+}
+
+// Context that uses a strategy
+class NumberList {
+    private List<Integer> data = new ArrayList<>();
+    private SortStrategy strategy;
+
+    public NumberList(SortStrategy strategy) {
+        this.strategy = strategy;
+    }
+    public void setStrategy(SortStrategy strategy) {
+        this.strategy = strategy;
+    }
+    public void add(int n) { data.add(n); }
+
+    public void doSort() {
+        strategy.sort(data);
+        System.out.println("Sorted: " + data);
+    }
+
+    public static void main(String[] args) {
+        NumberList list = new NumberList(new AscSort());
+        list.add(3); list.add(1); list.add(2);
+
+        list.doSort();                // Ascending
+        list.setStrategy(new DescSort());
+        list.doSort();                // Descending
+    }
+}
+
+
+Output (example):
+
+    Sorted: [1, 2, 3]
+    Sorted: [3, 2, 1]
+
+
+

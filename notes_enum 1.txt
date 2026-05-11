@@ -1,0 +1,234 @@
+# What is an Enum?
+
+An enum(short for enumeration) is a special data typein Java that represents a fixed set of constant values.
+
+Examples of things that never change:
+
+  Days of the week
+  Directions
+  Order status
+  User roles
+  Traffic signals
+
+In Java, an enum is more powerful than in many other languages.  
+It is type-safe, object‑oriented, and can contain:
+✔ Constructors  
+✔ Variables  
+✔ Methods  
+✔ Overridden behavior  
+✔ Interfaces
+
+
+
+#  Example of Enum
+
+
+enum Day {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Day today = Day.WEDNESDAY;
+
+        System.out.println(today);        // WEDNESDAY       
+    }
+}
+
+
+
+
+#  Why Use Enum?
+
+ 1. Prevents invalid values
+
+Using strings is dangerous:
+
+
+String status = "DELIVRED"; // typo!
+
+
+Enum removes this problem:
+
+
+Status s = Status.DELIVERED; // safe
+
+
+ 2. Improves readability
+
+`Direction.NORTH` is clearer than `"N"`.
+
+ 3. Type safety
+
+You cannot accidentally assign a wrong value.
+
+ 4. Supports behavior (methods, constructors)
+
+
+
+#  Enum with Fields and Constructor
+
+Enums can hold data for each constant.
+
+ Example: Subscription Plans
+
+
+enum Plan {
+    FREE(0), STANDARD(10), PREMIUM(20);
+
+    private int cost;
+
+    Plan(int cost) {       // enum constructor
+        this.cost = cost;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+}
+
+public class TestPlan {
+    public static void main(String[] args) {
+        Plan p = Plan.PREMIUM;
+
+        System.out.println(p.getCost()); // 20
+    }
+}
+
+
+ Key points:
+
+  Enum constructors are always private.
+  Each constant has its own value.
+
+
+
+#  Enum with Methods (Polymorphism)
+
+Enums can define different behaviorfor each constant.
+
+
+enum Operation {
+    ADD {
+        public int apply(int a, int b) { return a + b; }
+    },
+    SUBTRACT {
+        public int apply(int a, int b) { return a - b; }
+    },
+    MULTIPLY {
+        public int apply(int a, int b) { return a b; }
+    },
+    DIVIDE {
+        public int apply(int a, int b) { return a / b; }
+    };
+
+    public abstract int apply(int a, int b);
+}
+
+public class Calc {
+    static void main(String[] args) {
+        System.out.println(Operation.MULTIPLY.apply(3, 4)); // 12
+    }
+}
+
+
+
+
+#  Enum with Switch Statement
+
+
+enum TrafficLight { RED, YELLOW, GREEN }
+
+public class Signals {
+    public static void main(String[] args) {
+        TrafficLight signal = TrafficLight.RED;
+
+        switch (signal) {
+            case RED:
+                System.out.println("Stop");
+                break;
+            case YELLOW:
+                System.out.println("Get Ready");
+                break;
+            case GREEN:
+                System.out.println("Go");
+                break;
+        }
+    }
+}
+
+
+
+
+#  Using Enum in a HashMap
+
+Enums make great keys.
+
+
+enum Day { MONDAY, TUESDAY, WEDNESDAY }
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class EnumMapDemo {
+    public static void main(String[] args) {
+        Map<Day, String> tasks = new HashMap<>();
+
+        tasks.put(Day.MONDAY, "Team Meeting");
+        tasks.put(Day.TUESDAY, "Coding");
+        tasks.put(Day.WEDNESDAY, "Testing");
+
+        System.out.println(tasks.get(Day.TUESDAY));
+    }
+}
+
+
+
+
+#  EnumMap (Optimized for Enums)
+
+Better and faster than HashMap when the key is enum.
+
+
+Map<Day, String> map = new EnumMap<>(Day.class);
+
+
+
+
+# ✔ Built‑in Useful Enum Methods
+
+| Method              | What it does            |
+| ------------------- | ----------------------- |
+| `values()`          | returns all constants   |
+| `ordinal()`         | returns index (0-based) |
+| `name()`            | returns name as string  |
+| `valueOf("MONDAY")` | converts string → enum  |
+
+ Example:
+
+
+for (Day d : Day.values()) {
+    System.out.println(d);
+}
+
+
+When to use?
+  Values are fixedand predefined
+  Values are logically grouped
+  You want type safety
+  You need readable constant values
+  You need limited but powerful behavior
+
+
+Note:
+  Enum is not just a list of constants— it behaves like a special class.
+  Each constant is a public static final object.
+  You can add:
+      fields
+      methods
+      constructors
+  Enums are type-safe, clean, and perfectfor fixed values.
+
+
+
+

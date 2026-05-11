@@ -1,0 +1,85 @@
+
+
+
+LinkedHashMap<>(initialCapacity, loadFactor, accessOrderFlag)
+
+
+This constructor controls how much memory the map allocates, when it expands, and how it maintains the order of entries.
+
+  1) `initialCapacity`
+
+ What it means
+
+   This is the initial number of buckets (slots) inside the internal hash table.
+   Default value = 16
+   Must be a power of 2 (for efficient hashing).
+
+ Why is it important?
+
+   If your map grows too big, it will resize (rehash) → this is expensive.
+   Setting a proper capacity reduces resizing, improving performance.
+
+ Where it is used?
+
+Used when you know approx how many entries you will store.
+
+Example:
+
+
+// Expecting around 100 items
+LinkedHashMap<String, String> map = new LinkedHashMap<>(128);
+
+
+ Why power of 2?
+
+HashMap & LinkedHashMap use bit operations:
+
+    index = hash & (capacity - 1)
+
+This only works efficiently when capacity is 2ⁿ.
+
+
+
+ 2) `loadFactor`
+
+ What it means
+
+   `loadFactor` decides when to resize the LinkedHashMap.
+   Default value is 0.75f (75%).
+
+ How it works?
+
+Formula:
+
+    resize threshold = capacity × loadFactor
+
+Example:
+
+   capacity = 16
+   loadFactor = 0.75
+   threshold = 16 × 0.75 = 12
+
+When the map reaches 12 entries, it automatically resizes to 32.
+
+ Why default is 0.75f?
+
+It gives a good balance between:
+
+   speed (fewer collisions)
+   memory usage
+
+ Where is it used?
+
+Use custom loadFactor only when optimizing performance 
+
+
+
+| Parameter           | Meaning               | Default | Why used                                  |
+| ------------------- | --------------------- | ------- | ----------------------------------------- |
+| initialCapacity | Starting bucket count | 16      | Reduce resizing cost                      |
+| loadFactor      | Resize trigger        | 0.75f   | Balance of speed & memory                 |
+| accessOrderFlag | Ordering mode         | false   | true → LRU cache; false → insertion order |
+
+
+
+ 

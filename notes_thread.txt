@@ -1,0 +1,244 @@
+
+
+ What is a Process?
+
+   A process is a program in execution.
+   It has:
+       Its own memory
+       Its own CPU resources
+   Examples:
+       Running Chrome → one process
+       Running IntelliJ → another process
+
+  Processes do not share memory.
+
+
+
+ What is a Thread?
+
+   A thread is a small unit of execution inside a process.
+   A process can have multiple threads.
+   All threads in a process share memory.
+
+  Example:
+
+Inside Chrome:
+
+   One thread → page rendering
+   One thread → downloading
+   One thread → music playback
+
+
+
+ 2. Thread vs Process (Simple Table)
+
+| Process                         | Thread                                    |
+| ------------------------------- | ----------------------------------------- |
+| Heavyweight                     | Lightweight                               |
+| Own memory                      | Shared memory                             |
+| Slow communication              | Fast communication                        |
+| One crash may not affect others | One thread crash can affect whole process |
+
+
+
+  3. Thread Lifecycle (Easy Diagram)
+
+A thread in Java moves through these states:
+
+    NEW → RUNNABLE → RUNNING → BLOCKED / WAITING → TERMINATED
+
+  Explanation:
+
+   NEW → Thread object created
+   RUNNABLE → start() called, waiting for CPU
+   RUNNING → actually executing
+   WAITING / BLOCKED / TIMED\_WAITING → waiting for something (sleep, I/O, lock)
+   TERMINATED → run() method completed
+
+
+
+4. Creating Threads in Java
+
+Java gives two basic ways:
+
+ A) Extending Thread class
+
+ Example:
+
+
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running...");
+    }
+}
+
+public class ThreadDemo1 {
+    public static void main(String[] args) {
+        MyThread t = new MyThread(); // NEW
+        t.start();                   // RUNNABLE → RUNNING
+    }
+}
+
+
+  Important:
+
+   `start()` → starts a new thread
+   `run()` → contains thread code (called by JVM)
+
+
+
+ B) Implementing Runnable interface
+
+ Example:
+
+
+class MyTask implements Runnable {
+    public void run() {
+        System.out.println("Task is running...");
+    }
+}
+
+public class ThreadDemo2 {
+    public static void main(String[] args) {
+        Thread t = new Thread(new MyTask());
+        t.start();
+    }
+}
+
+
+  Why use Runnable?
+
+   Allows multiple inheritance (class can extend another class)
+   Good for thread pooling
+
+
+
+ 5. Common Thread Methods 
+
+
+
+ sleep() → pauses thread temporarily
+
+
+class SleepDemo extends Thread {
+    public void run() {
+        try {
+            System.out.println("Thread sleeping...");
+            Thread.sleep(2000); // 2 seconds
+            System.out.println("Woke up!");
+        } catch (Exception e) {}
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        new SleepDemo().start();
+    }
+}
+
+
+ join() → forces one thread to wait for another
+
+
+class JoinDemo extends Thread {
+    public void run() {
+        for(int i=1; i<=3; i++) {
+            System.out.println(i);
+        }
+    }
+}
+
+public class Demo2 {
+    public static void main(String[] args) throws Exception {
+        JoinDemo t = new JoinDemo();
+        t.start();
+
+        t.join(); // main waits until t finishes
+
+        System.out.println("Main thread ends");
+    }
+}
+
+
+
+
+ start() → begins a new thread
+
+   Allocates new stack for the thread
+   Calls `run()` internally
+
+
+t.start();
+
+
+
+
+run() → contains thread logic
+
+   Called by JVM when thread starts
+   Calling run() directly WILL NOT start a new thread
+
+
+t.run();  // normal method call, NOT a thread
+t.start(); // creates a new thread
+
+
+
+
+6. Mini Example (All Concepts Together)
+
+
+class Worker extends Thread {
+    public void run() {
+        System.out.println("Worker started...");
+
+        try {
+            Thread.sleep(1000); // sleep 1 second
+        } catch(Exception e) {}
+
+        System.out.println("Worker finished");
+    }
+}
+
+public class ThreadExample {
+    public static void main(String[] args) throws Exception {
+        Worker w = new Worker();
+
+        System.out.println("Thread state before start: " + w.getState());
+
+        w.start(); // RUNNABLE
+
+        w.join();  // wait for worker thread
+
+        System.out.println("Main ends");
+    }
+}
+
+
+Notes:
+
+  Process
+
+Independent program with its own memory
+
+  Thread
+
+Lightweight execution unit inside process
+
+  Thread Lifecycle
+
+NEW → RUNNABLE → RUNNING → WAITING → TERMINATED
+
+  Create Thread
+
+   Extend Thread
+   Implement Runnable
+
+  Important Methods
+
+   `start()` → begins new thread
+   `run()` → thread work
+   `sleep()` → pause
+   `join()` → wait for another thread
+
+

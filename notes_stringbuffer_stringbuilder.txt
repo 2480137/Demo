@@ -1,0 +1,118 @@
+ `String` → Immutable (cannot be changed)
+ `StringBuffer` & `StringBuilder` → Mutable (can be changed)
+
+ Frequent changes like append, insert, delete
+ Better performance than `String`
+
+
+ 2. What is Mutability? 
+
+ Immutable: Once created, value cannot change
+     e.g., `String`
+ Mutable: Value can be modified without creating a new object
+     e.g., `StringBuffer`, `StringBuilder`
+
+
+ 3. STRINGBUFFER
+
+ Definition
+
+ A mutable sequence of characters
+ Thread-safe (synchronized)
+ Slightly slower due to synchronization
+
+ Example
+
+public class StringBufferExample {
+    public static void main(String[] args) {
+        StringBuffer sb = new StringBuffer("Hello");
+
+        sb.append(" World");
+        sb.insert(5, ",");
+        sb.delete(0, 1);
+
+        System.out.println(sb);
+    }
+}
+
+
+
+
+ 4. STRINGBUILDER
+
+ Definition
+
+ A mutable sequence of characters
+ Not thread-safe (not synchronized)
+ Faster and more efficient in single-thread programs
+
+ Example
+
+public class StringBuilderExample {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder("Hello");
+
+        sb.append(" Java");
+        sb.insert(5, "!");
+        sb.delete(6, 10);
+
+        System.out.println(sb);
+    }
+}
+
+ 5. COMMON METHODS 
+
+ 1. `append()`
+
+ Adds text at the end
+
+StringBuilder sb = new StringBuilder("Java");
+sb.append(" Programming");
+System.out.println(sb); // Java Programming
+
+
+ 2. `insert()`
+
+ Inserts text at a specific index
+
+
+sb.insert(4, " Language");
+
+
+ 3. `delete()`
+
+ Removes characters from start index to end index - 1
+
+
+sb.delete(5, 10);
+
+
+
+Index starts from 0
+
+
+
+ 6. DIFFERENCES TABLE
+
+| Feature       | StringBuffer               | StringBuilder                |
+| ------------- | -------------------------- | ---------------------------- |
+| Mutability    | Mutable                    | Mutable                      |
+| Thread-safe   | Yes (synchronized) 	     | No                   	    |
+| Performance   | Slower                     | Faster                       |
+| Usage         | Multi-threaded environment | Single-threaded applications |  banking /ecom  | desktop apps /mobile apps 
+
+
+
+
+Use StringBuffer when:
+
+ More than 1 thread may update the same string
+ Example: banking, booking systems
+
+Use StringBuilder when:
+
+ Single-threaded
+ Performance matters
+ Example: building a long message, loops, concatenation
+
+

@@ -1,0 +1,175 @@
+try{
+any logic  // exp happens 
+}
+
+catch{
+handled in catch block 
+}
+
+catch( exception e) // general 
+{
+ e--> log 
+print  e // message 
+}
+
+
+finally{
+//close.
+//closed
+//gc
+}
+
+dividebyzero  // no/0 
+filenotfound // could not be read 
+
+multiple catch --> specific expection followed by general exption 
+
+ 1. Introduction to Exception Handling
+
+Exception Handling in Java helps you handle unexpected events (errors) at runtime without crashing the program.
+
+only try not allowed . try followed by catch/finally/both is allowed.
+try -finally / try-catch / try-catch-finally
+
+
+  2. Single try–catch
+
+1.  Write  code inside a `try` block.
+2.  If an exception occurs → control goes to the `catch` block.
+3.  If no exception occurs → `catch` is skipped.
+
+
+When you expect only one type of exception or want a general exception handler.
+
+
+
+Example: Single try–catch
+
+
+public class SingleTryCatchExample {
+    public static void main(String[] args) {
+        System.out.println("Program Started");
+
+        try {
+            int a = 10 / 0;  // Risky code (ArithmeticException)
+        } 
+	catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero");
+        }
+
+        System.out.println("Program Ended");
+    }
+}
+
+ Output:
+
+    Program Started
+    Error: Cannot divide by zero
+    Program Ended
+
+
+
+ 3. Multiple catch Blocks
+
+1.  Put all  code inside one try block.
+2.  Handle different exception types separately.
+3.  Java checks each catch from top to bottom.
+4.  Only one catch block executes—whichever matches first.
+
+   Catch blocks must be ordered from most specific -  to most general.
+   `Exception` class should always be the last catch.
+
+ Example: 
+
+public class MultipleCatchExample {
+    public static void main(String[] args) {
+        try {
+            String s = null;
+            System.out.println(s.length());  // NullPointerException
+        }
+        catch (ArithmeticException e) {
+            System.out.println("Arithmetic Error");
+        }
+        catch (NullPointerException e) {
+            System.out.println("Null value encountered");
+        }
+        catch (Exception e) {
+            System.out.println("General Exception");
+        }
+    }
+}
+
+
+  Output:
+
+    Null value encountered
+
+
+
+  4. finally Block
+
+
+1.  The `finally` block always executes, regardless of:
+       Exception occurs
+       Exception does NOT occur
+       Exception is not caught
+       Method returns early
+2.  Used for cleanup operations:
+       Closing files
+       Releasing database connections
+       Closing scanners
+
+
+
+ Example: try–catch–finally
+
+
+public class FinallyExample {
+    public static void main(String[] args) {
+        try {
+            int num = 5 / 1; // No exception
+            System.out.println("Division successful");
+        }
+        catch (Exception e) {
+            System.out.println("An error occurred");
+        }
+        finally {
+            System.out.println("Finally block always runs");
+        }
+    }
+}
+
+
+  Output:
+
+    Division successful
+    Finally block always runs
+
+
+
+  5. finally executes even if we return from try
+
+Example:
+
+
+public class FinallyReturnExample {
+    public static void main(String[] args) {
+        try {
+            System.out.println("Inside try");
+            return;
+        }
+        finally {
+            System.out.println("Inside finally");
+        }
+    }
+}
+
+
+  Output:
+
+    Inside try
+    Inside finally
+
+
+
+

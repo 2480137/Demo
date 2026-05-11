@@ -1,0 +1,83 @@
+clean, scalable , maintainable code 
+
+
+1.singleton Pattern
+There is one central authority and everyone must use the same instance.
+Software example:
+Logger system
+Database connection pool
+Windows Clipboard
+
+There is one central authority and everyone must use the same instance.
+It means:
+Only one object of that class is created in the whole program
+Everyone who wants to use it will use that same single object
+No one can create a second copy
+
+
+Example: Aadhaar Department / Electricity Board
+There is one central authority (one office / one database).
+Everyone uses that one system.
+
+You cannot create:
+multiple Aadhaar databases
+multiple electricity bill servers
+There must be one source of truth.
+That is exactly how Singleton works in code.
+
+ 2. Factory Pattern — Create objects without exposing creation logic
+ Real-life example: Pizza shop
+You order “Veg Pizza” → kitchen knows which ingredients & process to use.
+You don't create the pizza yourself.
+Software example:
+DatabaseDriverFactory.create("MySQL");
+
+3. Builder Pattern — Build complex objects step-by-step
+ Real-life example: Constructing a house
+You build:
+
+foundation
+walls
+roof
+interior
+
+But all steps are controlled individually.
+ Software example:
+
+Creating complex objects like Car, Laptop, UserProfile
+Fluent APIs
+StringBuilder in Java/C#
+
+
+ 4. Observer Pattern — One-to-many notifications
+ Real-life example: YouTube subscription
+
+bank intimating kyc update notification
+
+When a YouTuber uploads a video:
+
+All subscribers get a notification.
+
+Software example:
+
+Event listeners
+Messaging systems
+Stock price updates
+UI frameworks (button click → multiple listeners)
+
+5. Strategy Pattern — Choose behavior at runtime
+Real-life example: Google Maps Route Options
+You can choose:
+
+Fastest route
+Avoid tolls
+Shortest route
+
+The strategy changes but the interface remains same.
+Software example:
+
+Payment methods (UPI, Card, Wallet)
+Sorting algorithms
+Compression algorithms
+It returns the correct object based on input.
+
