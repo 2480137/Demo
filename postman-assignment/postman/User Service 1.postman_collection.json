@@ -1,0 +1,64 @@
+{
+  "info": {
+    "_postman_id": "6bb5aa88-f86d-4801-9b7d-0268d5147d4d",
+    "name": "User Service 1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52300109",
+    "_collection_link": "https://go.postman.co/collection/52300109-6bb5aa88-f86d-4801-9b7d-0268d5147d4d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "View All Users",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "pm.test(\"check status code\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"checkphonenumber\", function () {\r",
+              "    const users = pm.response.json();\r",
+              "    // Validate phone number exists and is a string for every user\r",
+              "    users.forEach(function (user) {\r",
+              "        pm.expect(user).to.have.property('phone');\r",
+              "        pm.expect(user.phone).to.be.a('string');\r",
+              "        pm.expect(user.phone).to.not.be.empty;\r",
+              "    });\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://webapps.tekstac.com/MovieAPI/UserService/viewUserList",
+          "protocol": "https",
+          "host": [
+            "webapps",
+            "tekstac",
+            "com"
+          ],
+          "path": [
+            "MovieAPI",
+            "UserService",
+            "viewUserList"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

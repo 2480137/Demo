@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Bitcoin API Test Suite" verbose="2">
+
+    <test name="Bitcoin Status Code Tests">
+        <classes>
+            <class name="com.bitcoin.tests.BitcoinStatusCodeTest">
+                <methods>
+                    <!-- Scenario 1: Verify 200 -->
+                    <include name="verifyStatusCode200"/>
+                    <!-- Scenario 2: Verify 404 (intentional failure) -->
+                    <include name="verifyStatusCode404"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

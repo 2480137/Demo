@@ -1,0 +1,10 @@
+<!--DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd"-->
+<suite name="Combined TestNG Suite">
+<test name="Annotation and Google Tests">
+    <classes>
+        <class name="TestNgDemo.GoogleTest"/>
+        <class name="TestNgDemo.AnnotationDemo"/>
+        <class name="TestNgDemo.GoogleTest"/>
+</classes>
+</test>
+</suite>

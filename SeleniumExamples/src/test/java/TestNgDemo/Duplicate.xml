@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Duplicate Google Suite">
+
+    <test name="Google Tests">
+        <classes>
+            <class name="TestNgDemo.GoogleTest"/>
+        </classes>
+    </test>
+
+</suite>
